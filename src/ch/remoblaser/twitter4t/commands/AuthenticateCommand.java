@@ -89,7 +89,6 @@ public class AuthenticateCommand implements ITwitterCommand {
         try {
 			props.load(new FileInputStream("src/twitter4j.properties"));
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
         

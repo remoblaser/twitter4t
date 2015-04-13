@@ -2,6 +2,7 @@ package ch.remoblaser.twitter4t.console;
 
 import ch.remoblaser.twitter4t.commands.ITwitterCommand;
 import ch.remoblaser.twitter4t.commands.NotRecognizedCommand;
+import ch.remoblaser.twitter4t.commands.QuitApplicationCommand;
 import ch.remoblaser.twitter4t.commands.SearchTweetCommand;
 import ch.remoblaser.twitter4t.commands.ShowMenuCommand;
 import ch.remoblaser.twitter4t.commands.ShowTwitterFeedCommand;
@@ -24,11 +25,14 @@ public class ConsoleHandler {
 			case "h":
 				command = new ShowMenuCommand();
 				break;
-			case "r":
+			case "l":
 				command = new ShowTwitterFeedCommand();
 				break;
 			case "s":
 				command = new SearchTweetCommand();
+				break;
+			case "q":
+				command = new QuitApplicationCommand();
 				break;
 			default:
 				command = new NotRecognizedCommand();
