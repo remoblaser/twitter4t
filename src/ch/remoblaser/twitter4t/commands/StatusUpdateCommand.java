@@ -25,6 +25,7 @@ public class StatusUpdateCommand implements ITwitterCommand{
 		
 		try {
 			this.tw.updateStatus(this.status);
+			System.out.println("Tweet sent!");
 		} catch (TwitterException e) {
 			e.printStackTrace();
 		}
