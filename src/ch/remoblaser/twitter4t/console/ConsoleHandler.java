@@ -1,6 +1,5 @@
 package ch.remoblaser.twitter4t.console;
 
-import ch.remoblaser.twitter4t.commands.AuthenticateCommand;
 import ch.remoblaser.twitter4t.commands.ITwitterCommand;
 import ch.remoblaser.twitter4t.commands.NotRecognizedCommand;
 import ch.remoblaser.twitter4t.commands.SearchTweetCommand;
