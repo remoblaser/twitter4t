@@ -1,7 +1,6 @@
 package ch.remoblaser.twitter4t.commands;
 
-import java.util.Scanner;
-
+import ch.remoblaser.twitter4t.console.TwitterConsole;
 import twitter4j.StatusUpdate;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
@@ -12,11 +11,9 @@ public class StatusUpdateCommand implements ITwitterCommand{
 	private StatusUpdate status;
 	private Twitter tw;
 	
-	@SuppressWarnings("resource")
 	public StatusUpdateCommand() {
-		System.out.println("Enter your Tweet text: ");
-		Scanner in = new Scanner(System.in);
-		this.status = new StatusUpdate(in.nextLine());
+		TwitterConsole.write("Enter your Tweet text: ");
+		this.status = new StatusUpdate(TwitterConsole.read());
 		tw = TwitterFactory.getSingleton();
 	}
 	
@@ -25,7 +22,7 @@ public class StatusUpdateCommand implements ITwitterCommand{
 		
 		try {
 			this.tw.updateStatus(this.status);
-			System.out.println("Tweet sent!");
+			TwitterConsole.write("Tweet sent!");
 		} catch (TwitterException e) {
 			e.printStackTrace();
 		}

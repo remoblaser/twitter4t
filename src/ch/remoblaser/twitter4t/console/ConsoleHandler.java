@@ -40,7 +40,7 @@ public class ConsoleHandler {
 		}
 		command.execute();
 		
-		System.out.println("-----------------");
+		TwitterConsole.write("-----------------");
 		if(consoleCommand != "h")
 			this.writeCommandLines();
 	}

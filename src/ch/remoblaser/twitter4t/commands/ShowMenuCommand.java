@@ -1,11 +1,13 @@
 package ch.remoblaser.twitter4t.commands;
 
+import ch.remoblaser.twitter4t.console.TwitterConsole;
+
 
 public class ShowMenuCommand implements ITwitterCommand {
 
 	@Override
 	public void execute() {
-		System.out.println("l = list tweets - t = tweet - s = search - h = help/show menu - q = quit");
+		TwitterConsole.write("l = list tweets - t = tweet - s = search - h = help/show menu - q = quit");
 	}
 
 }

@@ -1,7 +1,6 @@
 package ch.remoblaser.twitter4t.commands;
 
-import java.util.Scanner;
-
+import ch.remoblaser.twitter4t.console.TwitterConsole;
 import twitter4j.Query;
 import twitter4j.QueryResult;
 import twitter4j.Status;
@@ -13,11 +12,9 @@ public class SearchTweetCommand implements ITwitterCommand {
 	private Twitter tw;
 	private Query searchQuery;
 	
-	@SuppressWarnings("resource")
 	public SearchTweetCommand() {
-		System.out.println("Enter Search term: ");
-		Scanner in = new Scanner(System.in);
-		this.searchQuery = new Query(in.nextLine());
+		TwitterConsole.write("Enter Search term: ");
+		this.searchQuery = new Query(TwitterConsole.read());
 		tw = TwitterFactory.getSingleton();
 	}
 	
@@ -26,7 +23,7 @@ public class SearchTweetCommand implements ITwitterCommand {
 		try {
 			QueryResult result = this.tw.search(this.searchQuery);
 			for (Status status : result.getTweets()) {
-		        System.out.println("@" + status.getUser().getScreenName() + ":" + status.getText());
+				TwitterConsole.write("@" + status.getUser().getScreenName() + ":" + status.getText());
 		    }
 
 		} catch (TwitterException e) {
